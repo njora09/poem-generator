@@ -13,8 +13,9 @@ function generatePoem(event) {
   event.preventDefault();
   let promptInput = document.querySelector("#user-input");
   let apiKey = "83d9193aa7fdte65278764fab0o0ab2b";
-  let context = "You are a poet that creates beautiful poems. ";
-  let prompt = `Write a poem with 2 sentence about ${promptInput.value}. seperate each sentence with a break line.`;
+  let context =
+    "You are a poet that creates beautiful poems. follow strictly the instructions. ";
+  let prompt = `instructions: Write a poem with 2 sentence, with a <br /> after each coma, about ${promptInput.value}`;
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
   axios.get(apiUrl).then(showPoem);
